@@ -148,7 +148,7 @@ begin
   a_shift <= unsigned(a_shift_slv);
 
   loop_memories: for memory_index in 0 to SPCC-1 generate
-    mem: entity work.memory
+    mem: entity work.htfft_memory
       generic map (
         WIDTH => WIDTH,
         DEPTH => N/SPCC,

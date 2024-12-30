@@ -130,26 +130,26 @@ begin
                   i_data_b;
   write_data_b <= i_data_b;
 
-  memory_a: entity work.memory
+  memory_a: entity work.htfft_memory
     generic map (
-      DEPTH => L/2,
       WIDTH => SIZE*WIDTH/2,
+      DEPTH => L/2,
       ADDRESS_CLASH => ADDRESS_CLASH
       )
     port map (
       clk => clk,
-      toread_valid => toread_valid_a,
-      toread_address => toread_address,
-      fromread_data => fromread_data_a,
       write_valid => write_valid_a,
       write_address => write_address,
-      write_data => write_data_a
+      write_data => write_data_a,
+      toread_valid => toread_valid_a,
+      toread_address => toread_address,
+      fromread_data => fromread_data_a
       );
 
-  memory_b: entity work.memory
+  memory_b: entity work.htfft_memory
     generic map (
-      DEPTH => L/2,
       WIDTH => SIZE*WIDTH/2,
+      DEPTH => L/2,
       ADDRESS_CLASH => ADDRESS_CLASH
       )
     port map (
@@ -157,12 +157,12 @@ begin
       -- read_valid_b is just used to bring the power down when
       -- we're not reading from this memory.
       -- It's not necessary for correctness. 
-      toread_valid => toread_valid_b,
-      toread_address => toread_address,
-      fromread_data => fromread_data_b,
       write_valid => write_valid_b,
       write_address => write_address,
-      write_data => write_data_b
+      write_data => write_data_b,
+      toread_valid => toread_valid_b,
+      toread_address => toread_address,
+      fromread_data => fromread_data_b
       );
 
   process(clk)

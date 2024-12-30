@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 use work.htfft_pkg.all;
 
-entity memory is
+entity htfft_memory is
   generic (
     WIDTH: positive;
     DEPTH: positive;
@@ -21,7 +21,7 @@ entity memory is
     );
 end entity;
 
-architecture arch of memory is
+architecture arch of htfft_memory is
   subtype t_data is std_logic_vector(WIDTH-1 downto 0);
   type array_of_data is array(natural range <>) of t_data;
   signal memory_contents: array_of_data(DEPTH-1 downto 0);

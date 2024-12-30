@@ -11,7 +11,7 @@ filesets:
     depend:
       - barrel_shifter
       - shift_register
-      - memory
+      - htfft_memory
       - htfft_pkg
 
 targets:

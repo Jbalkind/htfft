@@ -8,7 +8,7 @@ filesets:
     depend:
       - htfft_pkg
       - butterfly
-      - memory
+      - htfft_memory
       - initial_memory
       - final_memory
       - htfft_gen
@@ -18,6 +18,17 @@ targets:
     generate : [htfft{{suffix}}_gen]
     toplevel : htfft{{suffix}}
     filesets: [default]
+  asic:
+    default_tool: design_compiler
+    filesets: [default]
+    generate: [htfft{{suffix}}_gen]
+    toplevel: [htfft{{suffix}}]
+    tools:
+      design_compiler:
+        script_dir: $PWD/dc
+        dc_script: htfft.tcl
+        target_library: $PWD/NangateOpenCellLibrary.db
+        libs: $PWD/NangateOpenCellLibrary.db
 
 generate:
   htfft{{suffix}}_gen:

@@ -1,17 +1,17 @@
 CAPI=2:
 
-name : ::memory
+name : ::htfft_memory
 description: Basic memory for use with htfft.
 
 filesets:
   default:
     files:
-      - memory.vhd
+      - htfft_memory.vhd
     file_type: vhdlSource
     depend:
       - htfft_pkg
 
 targets:
   default:
-    toplevel : memory
+    toplevel : htfft_memory
     filesets: [default]

@@ -9,7 +9,7 @@ filesets:
       - final_memory.vhd
     file_type : vhdlSource
     depend:
-      - memory
+      - htfft_memory
       - htfft_pkg
 
 targets:

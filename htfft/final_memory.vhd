@@ -82,7 +82,7 @@ begin
               i_data_a;
 
 
-  memory_1: entity work.memory
+  memory_1: entity work.htfft_memory
   generic map (
     WIDTH => SPCC*WIDTH/2,
     DEPTH => N/SPCC,
@@ -98,7 +98,7 @@ begin
     fromread_data => fromread_data_1
     );
 
-  memory_2: entity work.memory
+  memory_2: entity work.htfft_memory
   generic map (
     WIDTH => SPCC*WIDTH/2,
     DEPTH => N/SPCC,

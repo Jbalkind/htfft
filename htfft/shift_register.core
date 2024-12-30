@@ -1,7 +1,7 @@
 CAPI=2:
 
 name : ::shift_register
-description:
+description: shift reg
 
 filesets:
   default:
