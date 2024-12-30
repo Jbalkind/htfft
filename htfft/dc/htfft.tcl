@@ -1,12 +1,9 @@
 
-set hdlin_use_sv_include 1
-set hdlin_include_directories [list ../../../../../include ../../../../../protocols/tcp_hw/basejump_files/include ../../../../../protocols/tcp_hw/include/common ../../../../../protocols/tcp_hw/include/tcp ../../../../../util/common_noc_adapters/include ../../../../../util/logging/include ../../../../../network_tiles/eth/include ../../../../../apps/udp_echo_app/include ../../../../../network_tiles/ip/include ../../../../../network_tiles/udp/include .]
-set hdlin_include_files [list ../../../../../protocols/tcp_hw/include/common/noc_defs.vh]
+set hdlin_sv_blackbox_modules [list "htfft_memory" ]
 
 source $READ_SOURCES.tcl
 
-analyze -format sverilog [glob -nocomplain ./*.sv]
-analyze -format verilog [glob -nocomplain ./*.v]
+analyze -format vhdl [glob -nocomplain ./*.vhd]
 elaborate $TOP_MODULE
 
 current_design $TOP_MODULE
